@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-09-18T11:00:00+03:00",
+  "project": {
+    "name": "Клубный абонемент",
+    "description": "Синтетический пример: небольшая сеть студий хочет добавить семейный абонемент в личный кабинет.",
+    "current_version_id": "requirements-v2"
+  },
+  "current": {
+    "stage_id": "agreement",
+    "summary": "Версия 2 на проверке; согласования для неё нет",
+    "blockers": ["Нужно подтвердить правило переноса неиспользованных занятий для семейного абонемента."],
+    "next_step": "Получить ответ на открытый вопрос и отправить версию 2 на согласование."
+  },
+  "stages": [
+    {"id": "intake", "title": "Запрос и контекст", "status": "done"},
+    {"id": "questions", "title": "Вопросы и ответы", "status": "in_progress", "needed_step": "Получить правило переноса занятий."},
+    {"id": "process", "title": "Бизнес-процесс", "status": "done"},
+    {"id": "prototype", "title": "Интерактивный прототип", "status": "skipped", "skip_reason": "Изменение касается одного существующего сценария; схемы процесса достаточно для этой итерации."},
+    {"id": "requirements", "title": "Требования", "status": "in_progress", "needed_step": "Уточнить и закрепить правило переноса в версии 2."},
+    {"id": "agreement", "title": "Согласование требований", "status": "blocked", "needed_step": "Ответить на открытый вопрос, затем согласовать версию 2.", "blockers": ["Решение по переносу занятий не получено."]},
+    {"id": "spec", "title": "Техническое задание", "status": "pending"},
+    {"id": "implementation", "title": "Реализация", "status": "pending"},
+    {"id": "acceptance", "title": "Приёмка", "status": "pending"}
+  ],
+  "events": [
+    {
+      "id": "request-01", "type": "intake", "stage_id": "intake", "occurred_at": "2026-09-10T09:00:00+03:00", "recorded_at": "2026-09-10T09:12:00+03:00", "title": "Поступил запрос", "summary": "Добавить семейный абонемент: владелец оплачивает пакет и приглашает до трёх участников.",
+      "details": "Все имена, даты и документы в этом примере вымышлены."
+    },
+    {
+      "id": "questions-01", "type": "questions", "stage_id": "questions", "occurred_at": "2026-09-11T10:00:00+03:00", "recorded_at": "2026-09-11T10:15:00+03:00", "title": "Вопросы о составе семьи и сроке действия", "summary": "Зафиксированы два вопроса перед описанием правил.",
+      "questions": [
+        {"id": "q-members", "text": "Можно ли заменить участника после первой тренировки?", "status": "answered", "answers": [{"text": "Да, один раз за срок абонемента; действие доступно владельцу.", "occurred_at": "2026-09-12T14:00:00+03:00", "recorded_at": "2026-09-12T14:08:00+03:00", "source": "answer-note.md"}]},
+        {"id": "q-rollover", "text": "Переносятся ли неиспользованные занятия на следующий месяц?", "status": "open", "answers": []}
+      ]
+    },
+    {
+      "id": "answer-01", "type": "answers", "stage_id": "questions", "occurred_at": "2026-09-12T14:00:00+03:00", "recorded_at": "2026-09-13T08:30:00+03:00", "title": "Получен ответ о замене участника", "summary": "Разрешена одна замена участника за срок абонемента.",
+      "artifacts": [{"label": "Запись ответа", "path": "answer-note.md"}]
+    },
+    {
+      "id": "requirements-01", "type": "document", "stage_id": "requirements", "version_id": "requirements-v1", "occurred_at": "2026-09-14T18:00:00+03:00", "recorded_at": "2026-09-14T18:02:00+03:00", "title": "Подготовлена версия 1 требований", "summary": "Описаны покупка пакета, приглашение участников и одна замена участника.",
+      "artifacts": [{"label": "Требования, версия 1", "path": "requirements-v1.md", "version_id": "requirements-v1"}]
+    },
+    {
+      "id": "approval-01", "type": "approval", "stage_id": "agreement", "version_id": "requirements-v1", "occurred_at": "2026-09-15T12:00:00+03:00", "recorded_at": "2026-09-15T12:20:00+03:00", "title": "Согласована версия 1", "summary": "Согласование относится только к requirements-v1 и её объёму.",
+      "artifacts": [{"label": "Запись решения по версии 1", "path": "approval-v1.md", "version_id": "requirements-v1"}]
+    },
+    {
+      "id": "change-01", "type": "change", "stage_id": "requirements", "version_id": "requirements-v2", "occurred_at": "2026-09-17T11:00:00+03:00", "recorded_at": "2026-09-17T11:12:00+03:00", "title": "Появилась новая версия требований", "summary": "Добавлен перенос неиспользованных занятий; правило требует уточнения.",
+      "artifacts": [{"label": "Требования, версия 2", "path": "requirements-v2.md", "version_id": "requirements-v2"}]
+    },
+    {
+      "id": "correction-01", "type": "correction", "stage_id": "questions", "recorded_at": "2026-09-18T10:00:00+03:00", "title": "Уточнено время фиксации ответа", "summary": "Ответ о замене участника получен 12 сентября, внесён в журнал 13 сентября.", "corrects_event_id": "answer-01"
+    }
+  ],
+  "versions": [
+    {"id": "requirements-v1", "label": "Требования · версия 1", "kind": "requirements", "scope": "Покупка, приглашение и замена участника", "created_at": "2026-09-14T18:00:00+03:00", "artifacts": [{"label": "Открыть версию 1", "path": "requirements-v1.md", "version_id": "requirements-v1"}]},
+    {"id": "requirements-v2", "label": "Требования · версия 2", "kind": "requirements", "scope": "Покупка, приглашение, замена и перенос занятий", "created_at": "2026-09-17T11:00:00+03:00", "artifacts": [{"label": "Открыть версию 2", "path": "requirements-v2.md", "version_id": "requirements-v2"}]}
+  ],
+  "approvals": [
+    {"id": "decision-v1", "version_id": "requirements-v1", "scope": "Покупка, приглашение и замена участника", "decision": "approved", "decided_at": "2026-09-15T12:00:00+03:00", "actor": "Представитель заказчика (пример)", "note": "Решение зафиксировано в синтетической записи.", "evidence": [{"label": "Запись решения", "path": "approval-v1.md", "version_id": "requirements-v1"}]}
+  ]
+}
