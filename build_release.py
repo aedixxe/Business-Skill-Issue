@@ -14,18 +14,10 @@ FILES = (
     Path("LICENSE"),
     SKILL / "SKILL.md",
     SKILL / "agents/openai.yaml",
-    SKILL / "scripts/render_pipeline.py",
     SKILL / "references/analysis.md",
     SKILL / "references/artifacts.md",
     SKILL / "references/delivery.md",
-    SKILL / "references/pipeline.md",
     SKILL / "references/readiness.md",
-    SKILL / "examples/demo-pipeline.json",
-    SKILL / "examples/demo-pipeline.html",
-    SKILL / "examples/answer-note.md",
-    SKILL / "examples/approval-v1.md",
-    SKILL / "examples/requirements-v1.md",
-    SKILL / "examples/requirements-v2.md",
 )
 
 
