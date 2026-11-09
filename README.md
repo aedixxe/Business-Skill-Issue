@@ -24,7 +24,9 @@ python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-githu
 
 Скилл станет доступен в следующем сообщении Codex после установки.
 
-**Из ZIP-релиза.** Скачайте `Business-Skill-Issue-v0.1.0.zip` со страницы [Releases](https://github.com/aedixxe/Business-Skill-Issue/releases), распакуйте папку `business-skill-issue` в `~/.codex/skills/` (или `$CODEX_HOME/skills/`). Внутри неё должен лежать `SKILL.md`. Если папка уже существует, сначала сохраните свои изменения и обновите её вручную.
+**Из ZIP-релиза.** Скачайте [актуальный Business-Skill-Issue.zip](https://github.com/aedixxe/Business-Skill-Issue/releases/latest/download/Business-Skill-Issue.zip) из [последнего релиза](https://github.com/aedixxe/Business-Skill-Issue/releases/latest), распакуйте папку `business-skill-issue` в `~/.codex/skills/` (или `$CODEX_HOME/skills/`). Внутри неё должен лежать `SKILL.md`. Если папка уже существует, сначала сохраните свои изменения и обновите её вручную.
+
+Для полного тандема также установите [актуальный design-tz.zip](https://github.com/aedixxe/design-tz/releases/latest/download/design-tz.zip). Две папки скиллов размещаются рядом, а не одна внутри другой.
 
 ## Быстрый старт
 
@@ -39,7 +41,7 @@ python3 ~/.codex/skills/.system/skill-installer/scripts/install-skill-from-githu
 Релизный ZIP собирается из фиксированного списка публичных файлов; `dist/`, `.qa/`, тесты и любые локальные документы проекта в него не входят:
 
 ```bash
-python3 build_release.py --version v0.1.0
+python3 build_release.py --version v0.2.0
 ```
 
 Лицензия: [MIT](LICENSE).
